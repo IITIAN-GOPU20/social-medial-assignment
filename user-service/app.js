@@ -11,12 +11,12 @@ const app = express();
 
 connectDB();
 
-// Middlewares
+
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Routes
+
 app.use('', userRoutes);
 
 

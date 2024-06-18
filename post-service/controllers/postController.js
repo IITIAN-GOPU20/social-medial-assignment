@@ -60,7 +60,7 @@ export const getPostsByTag = async (req, res) => {
     if (!tags) {
         return res.status(400).json({ error: 'Tags parameter is required' });
     }
-    // Ensure each tag includes the '#' prefix
+ 
     const tagsArray = tags.split(',')
                           .map(tag => tag.trim())
                           .map(tag => tag.startsWith('#') ? tag : `#${tag}`);

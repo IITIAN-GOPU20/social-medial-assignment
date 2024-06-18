@@ -77,12 +77,10 @@ const followUnFollowUser = async (req, res) => {
         if (!userToModify || !currentUser) return res.status(400).json({ error: "User not found" });
         const isFollowing = currentUser.following.includes(id);
         if (isFollowing) {
-            // Unfollow user
             await User.findByIdAndUpdate(id, { $pull: { followers: req.user._id } });
             await User.findByIdAndUpdate(req.user._id, { $pull: { following: id } });
             res.status(200).json({ message: "User unfollowed successfully" });
         } else {
-            // Follow user
             await User.findByIdAndUpdate(id, { $push: { followers: req.user._id } });
             await User.findByIdAndUpdate(req.user._id, { $push: { following: id } });
             res.status(200).json({ message: "User followed successfully" });
@@ -98,9 +96,7 @@ const deleteOwnAccount = async (req, res) => {
         const userId = req.user._id;
         const user = await User.findByIdAndDelete(userId);
         if (!user) return res.status(404).send('User not found.');
-        // Delete user's discussions
         await Post.deleteMany({ author: userId });
-        // Delete user's comments
         await Comment.deleteMany({ author: userId });
         await Post.updateMany({ likes: userId }, { $pull: { likes: userId } });
         await Comment.updateMany({ likes: userId }, { $pull: { likes: userId } });
@@ -144,6 +140,5 @@ export {
     updateUser,
     deleteOwnAccount,
     searchUsers,
-    getSuggestedUsers,
 
 };

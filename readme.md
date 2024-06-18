@@ -35,6 +35,9 @@ The Low-Level Design (LLD) for the entire system, including all microservices, c
 The Database Design, including schema diagrams and relationships, can be found here:
 [Database Design](https://drive.google.com/file/d/1JqynzCe7Qg2f19x6FCIvs4n63zXtg_Bd/view?usp=sharing)
 
+## Postman Link
+[Postman] (https://www.postman.com/payload-pilot-88591702/workspace/my-workspace/collection/36369191-fb86cd45-fa22-43df-9ff0-c9928dc776ce?action=share&creator=36369191)
+
 ## Getting Started
 
 ### Prerequisites

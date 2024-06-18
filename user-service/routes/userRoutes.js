@@ -17,11 +17,7 @@ router.get('/', protectRoute, getUsers);
 router.get('/:id', protectRoute, getUser);
 router.put("/update/:id", protectRoute, updateUser);
 router.delete('/me', protectRoute, deleteOwnAccount);
-// router.get("/profile/:query", getUserProfile)
-// router.get("/profile/:query", getUserProfile);
-// router.get("/suggested", protectRoute, getSuggestedUsers);
 router.post("/follow/:id", protectRoute, followUnFollowUser);
-// router.put("/update/:id", protectRoute, updateUser);
-// router.put("/freeze", protectRoute, freezeAccount);
+
 
 export default router;
